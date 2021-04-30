@@ -24,12 +24,12 @@ setup(
     package_data={"": ["*.txt", "*.rst"], "guillotina_oauth": ["py.typed"]},
     install_requires=[
         "setuptools",
-        "guillotina>=4.0.0",
-        "ujson",
-        "pyjwt",
-        "lru-dict",
+        "guillotina @ git+https://github.com/plone/guillotina@migration-5-to-6-fixes#egg=guillotina",
+        # "guillotina>=4.0.0",
         "aiohttp-client-manager",
     ],
-    tests_require=["pytest", "pre-commit==1.18.2", "black==19.10b0", "isort==4.3.21"],
+    extras_require={
+        "test": ["pytest", "pre-commit==1.18.2", "black==19.10b0", "isort==4.3.21", "pytest-docker-fixtures==1.3.7", "async-asgi-testclient" ],
+    },
     entry_points={"guillotina": ["include = guillotina_oauth"]},
 )
